@@ -28,11 +28,11 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
+#include "stm32f1xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -50,6 +50,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -58,12 +60,18 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define INT1_Pin GPIO_PIN_0
+#define INT1_GPIO_Port GPIOA
+#define INT2_Pin GPIO_PIN_1
+#define INT2_GPIO_Port GPIOA
+#define IRQ_NRF_Pin GPIO_PIN_2
+#define IRQ_NRF_GPIO_Port GPIOA
 #define CSN_Pin GPIO_PIN_3
 #define CSN_GPIO_Port GPIOA
 #define CE_Pin GPIO_PIN_4
 #define CE_GPIO_Port GPIOA
-#define IRQ_Pin GPIO_PIN_0
-#define IRQ_GPIO_Port GPIOB
+#define Servo_Pin GPIO_PIN_10
+#define Servo_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
